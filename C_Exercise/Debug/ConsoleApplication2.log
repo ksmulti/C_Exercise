@@ -1,0 +1,22 @@
+﻿Build started 2015/6/9 下午 10:46:25.
+     1>Project "D:\test\C_Exercise\ConsoleApplication2\ConsoleApplication2.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (ConsoleApplication2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\C_Exercise.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt C_Exercise.cpp
+         C_Exercise.cpp
+     1>d:\test\c_exercise\consoleapplication2\c_exercise.cpp(108): warning C4101: 'pd' : unreferenced local variable
+     1>d:\test\c_exercise\consoleapplication2\c_exercise.cpp(103): warning C4101: 'f' : unreferenced local variable
+     1>d:\test\c_exercise\consoleapplication2\c_exercise.cpp(109): warning C4101: 'pc' : unreferenced local variable
+     1>d:\test\c_exercise\consoleapplication2\c_exercise.cpp(107): warning C4101: 'pf' : unreferenced local variable
+     1>d:\test\c_exercise\consoleapplication2\c_exercise.cpp(106): warning C4101: 'pi' : unreferenced local variable
+     1>d:\test\c_exercise\consoleapplication2\c_exercise.cpp(105): warning C4101: 'c' : unreferenced local variable
+     1>d:\test\c_exercise\consoleapplication2\c_exercise.cpp(104): warning C4101: 'd' : unreferenced local variable
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\test\C_Exercise\Debug\C_Exercise.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\test\C_Exercise\Debug\C_Exercise.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\test\C_Exercise\Debug\C_Exercise.lib" /MACHINE:X86 Debug\C_Exercise.obj
+         Debug\stdafx.obj
+         ConsoleApplication2.vcxproj -> D:\test\C_Exercise\Debug\C_Exercise.exe
+     1>Done Building Project "D:\test\C_Exercise\ConsoleApplication2\ConsoleApplication2.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.49
