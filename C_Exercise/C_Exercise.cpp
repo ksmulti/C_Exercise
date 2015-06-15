@@ -35,33 +35,72 @@ void swap(char* a, char* b)
     *b = tmp;
 }
 
-typedef struct Node
+typedef struct listNode
 {
     int a;
-    struct Node *next = NULL;
-} node;
+    struct listNode *next = NULL;
+} ListNode;
 
-node *CreateNode(int a)
+ListNode *ListCreateNode(int a)
 {
-    node *N = (node*)malloc(sizeof(node));
+    ListNode *N = (ListNode*)malloc(sizeof(ListNode));
     N->a = a;
     N->next = NULL;
 
     return N;
 }
 
-void Insert(struct Node *n1, struct Node *n2)
+void ListNodeInsert(ListNode *n1, ListNode *n2)
 {
     n2->next = n1->next;
     n1->next = n2;
 }
 
-void Remove(struct Node *n1)
+void ListNodeRemove(ListNode *n1)
 {
     free(n1->next);
     n1->next = n1->next->next;
-
 }
+/*
+node *ListInverse(node *start)
+{
+    node *tmp = NULL;
+    node *n1 = NULL;
+    node *n2 = NULL;
+    
+    n1 = start;
+    n2 = start->next;
+    start->next = NULL;
+    while (n2 != NULL)
+    {
+        tmp = n2->next;
+        n2->next = n1;
+        n1 = n2;
+        n2 = tmp;
+    }
+    return n1;
+}
+*/
+ListNode *ListInverse(ListNode *start)
+{
+    ListNode *nextNode = NULL;
+    ListNode *preNode = NULL;
+    
+    nextNode = start->next;
+    start->next = NULL;
+    preNode = start;
+    start = nextNode;
+
+    while (start != NULL)
+    {
+        nextNode = start->next;
+        start->next = preNode;
+        preNode = start;
+        start = nextNode;
+    }
+    return preNode;
+}
+
 
 void StolBubbleSort(int int_s[], int length)
 {
@@ -85,7 +124,7 @@ void StolBubbleSort(int int_s[], int length)
     }
 }
 
-void Reverse(char *str)
+void StrReverse(char *str)
 {
     int length = strlen(str);
     char tmp;
@@ -96,6 +135,18 @@ void Reverse(char *str)
         str[length -1 - i] = tmp;
     }
 }
+
+void My_strcpy(char *dest, char *source)
+{
+    int i = 0;
+    while (source[i] != '\0')
+    {
+        dest[i] = source[i];
+        i++;
+    }
+    dest[i] = '\0';
+}
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -150,11 +201,29 @@ int _tmain(int argc, _TCHAR* argv[])
     swap(&aa, &bb);
     printf("aa: %c, bb: %c\n", aa, bb);
 
-    node *n1 = CreateNode(1);
-    node *n2 = CreateNode(2);
-    Insert(n1, n2);
-    printf("n1 int: %d\n", n1->a);
-    printf("n2 int: %d\n", n1->next->a);
+    ListNode *n1 = ListCreateNode(1);
+    ListNode *n2 = ListCreateNode(2);
+    ListNode *n3 = ListCreateNode(3);
+    ListNode *n4 = ListCreateNode(4);
+    ListNodeInsert(n1, n2);
+    ListNodeInsert(n2, n3);
+    ListNodeInsert(n3, n4);
+    ListNode *start = n1;
+    int i1 = 1;
+    while (start != NULL)
+    {
+        printf("n%d int: %d\n", i1, start->a);
+        start = start->next;
+        i1++;
+    }
+    start = ListInverse(n1);
+    while (start != NULL)
+    {
+        printf("n%d int: %d\n", i1, start->a);
+        start = start->next;
+        i1++;
+    }
+
 
     //int iarray[10] = {6, 77, 2, 5, 3, 78, 106, 444, 3, 87};
     int iarray[] = { 5, 4, 3, 2 };
@@ -165,8 +234,17 @@ int _tmain(int argc, _TCHAR* argv[])
     printf("\n");
 
     char mystring[] = "abcdef";
-    Reverse(mystring);
-    printf("mystring: %s\n", mystring);
+    StrReverse(mystring);
+    printf("mystring reverse: %s\n", mystring);
+
+    char mystring2[100];
+    My_strcpy(mystring2, mystring);
+    printf("My_strcpy mystring2 : %s\n", mystring2);
+
+    int twodIntarray[3][3] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+    int *iptr = &twodIntarray[0][1];
+    printf("%d\n", iptr[2]);
+
 
     getchar();
 	return 0;
